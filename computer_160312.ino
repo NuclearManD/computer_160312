@@ -204,7 +204,7 @@ void init_sd(){
 bool netboot(){
   vga.println("connecting to 192.168.1.132...");
   byte error=false;
-  client.close();// just to be sure
+  client=EthernetClient();// just to be sure
   if (!client.connect(server,55555)){
     vga.println("Cannot access server. Network cannot boot.");
     return false;
@@ -355,6 +355,10 @@ byte in(byte a){
       return 0;
   }else if(a==2){
     return SD.exists(fnamen);
+  }else if(a==3){
+    return usr_file.available();
+  }else if(a==4){
+    return usr_file.read();
   }
   return 0;
 }
