@@ -102,7 +102,6 @@ void loop() {
     Serial.print(pc,HEX);
     Serial.print(" : ");
     Serial.println(opcode,HEX);
-
   Serial.print("  SP : ");
   Serial.println(sp);
   #endif
